@@ -1,0 +1,13 @@
+@import "../../index.css";
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  border-right: solid 1px black;
+  padding: 20px;
+}
+
+.nav_text {
+  text-decoration: none;
+  color: black;
+}
