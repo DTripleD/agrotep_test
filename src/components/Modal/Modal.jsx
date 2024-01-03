@@ -12,6 +12,16 @@ const Modal = ({ isHidden, setIsHidden, addCat }) => {
   const handleFormSubmit = (event) => {
     event.preventDefault();
     addCat({ catName, breed, years, receiving, fact });
+    resetForm();
+    setIsHidden(true);
+  };
+
+  const resetForm = () => {
+    setCatName("");
+    setBreed("");
+    setYears("");
+    setReceiving("");
+    setFact("");
   };
 
   return (
@@ -31,6 +41,7 @@ const Modal = ({ isHidden, setIsHidden, addCat }) => {
           <label className={css.modal__label}>
             Ім`я
             <input
+              value={catName}
               type="text"
               id="user_name"
               name="user_name"
@@ -42,6 +53,7 @@ const Modal = ({ isHidden, setIsHidden, addCat }) => {
           <label className={css.modal__label}>
             Порода
             <input
+              value={breed}
               type="text"
               id="user_phone"
               name="user_phone"
@@ -53,6 +65,7 @@ const Modal = ({ isHidden, setIsHidden, addCat }) => {
           <label className={css.modal__label}>
             Вік
             <input
+              value={years}
               type="text"
               id="user_mail"
               name="user_mail"
@@ -64,6 +77,7 @@ const Modal = ({ isHidden, setIsHidden, addCat }) => {
           <label htmlFor="user_mail" className={css.modal__label}>
             Дата запису
             <input
+              value={receiving}
               type="text"
               id="user_mail"
               name="user_mail"
@@ -75,6 +89,7 @@ const Modal = ({ isHidden, setIsHidden, addCat }) => {
           <label className={css.modal__label} htmlFor="user_message">
             Факт
             <textarea
+              value={fact}
               className={css.modal__message}
               name="user_message"
               id="user_message"

@@ -2,6 +2,7 @@ import { useState } from "react";
 import Modal from "../../components/Modal/Modal";
 import css from "./MainPage.module.scss";
 import CatList from "../../components/CatList/CatList";
+import { Plus } from "lucide-react";
 
 const MainPage = () => {
   const [offices, setOffices] = useState([
@@ -18,19 +19,6 @@ const MainPage = () => {
       ],
       id: 0,
     },
-    {
-      officeName: "Кабінет2",
-      data: [
-        {
-          catName: "Мурзик",
-          breed: "Мейкун",
-          years: "1 рік",
-          receiving: "03.01.2024",
-          fact: "Fdfdsfdfggdggd",
-        },
-      ],
-      id: 1,
-    },
   ]);
   const [isHidden, setIsHidden] = useState(true);
 
@@ -41,33 +29,31 @@ const MainPage = () => {
       ...prev,
       {
         officeName: "Кабінет",
-        data: {
-          catName: "Мурзик",
-          breed: "Мейкун",
-          years: "1 рік",
-          receiving: "03.01.2024",
-          fact: "Fdfdsfdfggdggd",
-        },
+        data: [
+          {
+            catName: "Мурзик",
+            breed: "Мейкун",
+            years: "1 рік",
+            receiving: "03.01.2024",
+            fact: "Fdfdsfdfggdggd",
+          },
+        ],
+        id: offices.length,
       },
     ]);
   };
 
   const addCat = (props) => {
-    // Копия полного масива
     const updatedOffices = [...offices];
 
-    // Офис который нам нужно было найти
     const officeToUpdate = updatedOffices.find(
       (office) => office.id === selectedItem
     );
 
     if (officeToUpdate) {
-      // Обьект который будем запихивать
       const newData = {
         ...props,
       };
-
-      console.log(officeToUpdate.data);
 
       officeToUpdate.data = [...officeToUpdate.data, newData];
 
@@ -75,10 +61,8 @@ const MainPage = () => {
     }
   };
 
-  console.log(offices);
-
   return (
-    <div>
+    <main className={css.main_wrapper}>
       <button onClick={newOffice}>Новий кабінет</button>
       <label>
         <input type="checkbox" />
@@ -91,11 +75,10 @@ const MainPage = () => {
       <div>
         {offices.map((office, index) => (
           <div key={index}>
-            {console.log(office)}
             <div className={css.office_wrapper}>
               <div>
                 {office.officeName}
-                {index}
+                {index + 1}
               </div>
               <button
                 type="button"
@@ -105,18 +88,18 @@ const MainPage = () => {
                   setIsHidden(!prevState);
                 }}
               >
-                New cat
+                <Plus />
               </button>
             </div>
 
-            {office.data.map((d) => (
-              <CatList key={d.catName} data={d} />
+            {office.data.map((d, index) => (
+              <CatList key={d.catName} data={d} id={index} />
             ))}
           </div>
         ))}
       </div>
       <Modal isHidden={isHidden} setIsHidden={setIsHidden} addCat={addCat} />
-    </div>
+    </main>
   );
 };
 

@@ -10,4 +10,12 @@
 .nav_text {
   text-decoration: none;
   color: black;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.icon_arrow {
+  width: 20px;
+  height: 20px;
 }
