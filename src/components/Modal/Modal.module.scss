@@ -43,6 +43,10 @@
   }
 }
 
+.close_icon {
+  color: rgba(15, 14, 14, 0.603);
+}
+
 .modal__close {
   position: absolute;
   top: 8px;
@@ -53,7 +57,8 @@
 
   border-radius: 50%;
   background-color: inherit;
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  // border: 1px solid rgba(0, 0, 0, 0.1);
+  border: none;
 
   display: flex;
   justify-content: center;

@@ -2,6 +2,7 @@ import { NavLink } from "react-router-dom";
 import css from "./Sidebar.module.scss";
 import { useState } from "react";
 import { ArrowRight, Briefcase, Info, Phone } from "lucide-react";
+import ThemeToggler from "../ThemeToggler/ThemeToggler";
 
 const Sidebar = () => {
   const [isShown, setIsShown] = useState(false);
@@ -36,6 +37,7 @@ const Sidebar = () => {
           </span>
         </NavLink>
       </div>
+      <ThemeToggler />
     </div>
   );
 };

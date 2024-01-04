@@ -1,7 +1,10 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import css from "./Modal.module.scss";
 import PropTypes from "prop-types";
 import { day, month, year } from "../../helpers/date";
+
+import allCatsBreed from "../../../cats.json";
+import { XCircle } from "lucide-react";
 
 const Modal = ({ isHidden, setIsHidden, addCatFunc }) => {
   const [catName, setCatName] = useState("");
@@ -14,9 +17,20 @@ const Modal = ({ isHidden, setIsHidden, addCatFunc }) => {
     event.preventDefault();
 
     addCatFunc({ catName, breed, years, receiving, fact });
-    resetForm();
+
     setIsHidden(true);
+    resetForm();
   };
+
+  useEffect(() => {
+    resetForm();
+    if (!isHidden) {
+      fetch("https://catfact.ninja/fact")
+        .then((res) => res.json())
+        .then((data) => setFact(data.fact))
+        .catch((error) => console.log(error));
+    }
+  }, [isHidden]);
 
   const resetForm = () => {
     setCatName("");
@@ -32,7 +46,9 @@ const Modal = ({ isHidden, setIsHidden, addCatFunc }) => {
         <button
           className={css.modal__close}
           onClick={() => setIsHidden(!isHidden)}
-        ></button>
+        >
+          <XCircle className={css.close_icon} />
+        </button>
 
         <p className={css.modal__article}>Додати котика</p>
         <form
@@ -55,7 +71,7 @@ const Modal = ({ isHidden, setIsHidden, addCatFunc }) => {
 
           <label className={css.modal__label}>
             Порода
-            <input
+            <select
               required
               value={breed}
               type="text"
@@ -63,7 +79,14 @@ const Modal = ({ isHidden, setIsHidden, addCatFunc }) => {
               name="user_phone"
               className={css.modal__input}
               onChange={(e) => setBreed(e.target.value)}
-            />
+            >
+              <option value="">--Виберіть породу--</option>
+              {allCatsBreed.map((cat) => (
+                <option value={cat} key={cat}>
+                  {cat}
+                </option>
+              ))}
+            </select>
           </label>
 
           <label className={css.modal__label}>

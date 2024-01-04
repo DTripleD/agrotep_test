@@ -1,11 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { persistStore, persistReducer } from "redux-persist";
+import { persistStore } from "redux-persist";
 
-import { catsPersistConfig, catsReducer } from "./cats/catsSlice";
+import { persistedThemeReducer } from "./theme/themeSlice";
+import { persistedCatsReducer } from "./cats/catsSlice";
 
 export const store = configureStore({
   reducer: {
-    cats: persistReducer(catsPersistConfig, catsReducer),
+    cats: persistedCatsReducer,
+    theme: persistedThemeReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

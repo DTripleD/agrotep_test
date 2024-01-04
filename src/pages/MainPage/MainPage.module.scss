@@ -7,5 +7,24 @@
 
 .table_head {
   display: flex;
+  align-items: center;
   justify-content: space-between;
+}
+
+.new_office {
+}
+
+.table_wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.plus_button {
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
 }
