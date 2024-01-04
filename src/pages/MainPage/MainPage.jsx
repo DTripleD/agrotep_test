@@ -72,32 +72,38 @@ const MainPage = () => {
         <input type="checkbox" />
         Котенята
       </label>
-      <div>
-        {offices.map((office, index) => (
-          <div key={index}>
-            <div className={css.office_wrapper}>
-              <div>
-                {office.officeName}
-                {index + 1}
-              </div>
-              <button
-                type="button"
-                data-modal-open
-                onClick={(prevState) => {
-                  setSelectedItem(index);
-                  setIsHidden(!prevState);
-                }}
-              >
-                <Plus />
-              </button>
-            </div>
 
-            {office.data.map((d, index) => (
-              <CatList key={d.catName} data={d} id={index} />
-            ))}
-          </div>
-        ))}
-      </div>
+      {offices.map((office, index) => (
+        <table key={index}>
+          <thead>
+            <tr>
+              <th colSpan="5">
+                <div className={css.table_head}>
+                  <div>
+                    {office.officeName}
+                    {index + 1}
+                  </div>
+                  <button
+                    type="button"
+                    data-modal-open
+                    onClick={(prevState) => {
+                      setSelectedItem(index);
+                      setIsHidden(!prevState);
+                    }}
+                  >
+                    <Plus />
+                  </button>
+                </div>
+              </th>
+            </tr>
+          </thead>
+
+          {office.data.map((d, index) => (
+            <CatList key={d.catName} data={d} id={index} />
+          ))}
+        </table>
+      ))}
+
       <Modal isHidden={isHidden} setIsHidden={setIsHidden} addCat={addCat} />
     </main>
   );

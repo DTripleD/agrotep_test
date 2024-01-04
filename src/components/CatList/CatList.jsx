@@ -1,16 +1,17 @@
 import PropTypes from "prop-types";
-import css from "./CatList.module.scss";
+// import css from "./CatList.module.scss";
 
 const CatList = ({ data, id }) => {
   return (
-    <div className={css.cat_wrapper}>
-      <p>{id + 1}</p>
-      <p>{data.catName}</p>
-      <p>{data.breed}</p>
-      <p>{data.years}</p>
-      <p>{data.receiving}</p>
-      <p>{data.fact}</p>
-    </div>
+    <tbody>
+      <tr>
+        <td>{`${id + 1}. ${data.catName}`}</td>
+        <td>{data.breed}</td>
+        <td>{data.years}</td>
+        <td>{data.receiving}</td>
+        <td>{data.fact}</td>
+      </tr>
+    </tbody>
   );
 };
 

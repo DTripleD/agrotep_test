@@ -18,4 +18,9 @@
 .icon_arrow {
   width: 20px;
   height: 20px;
+  transition: rotate 0.3s ease;
+}
+
+.is_active {
+  rotate: 180deg;
 }
