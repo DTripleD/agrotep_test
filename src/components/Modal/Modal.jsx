@@ -1,8 +1,9 @@
 import { useState } from "react";
 import css from "./Modal.module.scss";
 import PropTypes from "prop-types";
+import { day, month, year } from "../../helpers/date";
 
-const Modal = ({ isHidden, setIsHidden, addCat }) => {
+const Modal = ({ isHidden, setIsHidden, addCatFunc }) => {
   const [catName, setCatName] = useState("");
   const [breed, setBreed] = useState("");
   const [years, setYears] = useState("");
@@ -11,7 +12,8 @@ const Modal = ({ isHidden, setIsHidden, addCat }) => {
 
   const handleFormSubmit = (event) => {
     event.preventDefault();
-    addCat({ catName, breed, years, receiving, fact });
+
+    addCatFunc({ catName, breed, years, receiving, fact });
     resetForm();
     setIsHidden(true);
   };
@@ -41,6 +43,7 @@ const Modal = ({ isHidden, setIsHidden, addCat }) => {
           <label className={css.modal__label}>
             Ім`я
             <input
+              required
               value={catName}
               type="text"
               id="user_name"
@@ -53,6 +56,7 @@ const Modal = ({ isHidden, setIsHidden, addCat }) => {
           <label className={css.modal__label}>
             Порода
             <input
+              required
               value={breed}
               type="text"
               id="user_phone"
@@ -65,8 +69,12 @@ const Modal = ({ isHidden, setIsHidden, addCat }) => {
           <label className={css.modal__label}>
             Вік
             <input
+              required
               value={years}
-              type="text"
+              type="number"
+              min={0.1}
+              max={50}
+              step={0.1}
               id="user_mail"
               name="user_mail"
               className={css.modal__input}
@@ -77,8 +85,10 @@ const Modal = ({ isHidden, setIsHidden, addCat }) => {
           <label htmlFor="user_mail" className={css.modal__label}>
             Дата запису
             <input
+              required
               value={receiving}
-              type="text"
+              type="date"
+              min={`${year}-${month}-${day}`}
               id="user_mail"
               name="user_mail"
               className={css.modal__input}
@@ -89,6 +99,7 @@ const Modal = ({ isHidden, setIsHidden, addCat }) => {
           <label className={css.modal__label} htmlFor="user_message">
             Факт
             <textarea
+              required
               value={fact}
               className={css.modal__message}
               name="user_message"
@@ -112,5 +123,5 @@ export default Modal;
 Modal.propTypes = {
   isHidden: PropTypes.bool,
   setIsHidden: PropTypes.func,
-  addCat: PropTypes.func,
+  addCatFunc: PropTypes.func,
 };

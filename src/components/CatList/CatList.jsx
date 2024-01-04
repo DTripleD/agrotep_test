@@ -7,7 +7,7 @@ const CatList = ({ data, id }) => {
       <tr>
         <td>{`${id + 1}. ${data.catName}`}</td>
         <td>{data.breed}</td>
-        <td>{data.years}</td>
+        <td>{data.years} рік/років</td>
         <td>{data.receiving}</td>
         <td>{data.fact}</td>
       </tr>
