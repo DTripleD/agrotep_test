@@ -1,8 +1,33 @@
-# React + Vite
+<h1 align="center">Тестове завдання АгроТеп</h1>
+<h2 align="center">
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<img src="src/images/banner.jpg">
 
-Currently, two official plugins are available:
+## Про цей проєкт
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Всі пункти ТЗ виконані.
+
+- Додана можливість додавати котиків через модальне вікно
+  <img src="src/images/modal.jpg">
+- Додана можливість додавати і видаляти як окремий кабінет, так і окремого котика
+- Якщо якесь з полів завелике, можна побачити повний текст через підказку
+  <img src="src/images/hint.jpg">
+- Реалізовані всі 3 сторінки
+- Можливість згортати бокове меню
+  <img src="src/images/sidebar.jpg">
+
+## Використані технології і бібліотеки для створення цього проекту:
+
+- Проєкт строрений за допомогою [Vite + React](https://github.com/vitejs/vite)
+- [Redux Toolkit](https://redux-toolkit.js.org)
+- [Lucide Rect](https://lucide.dev/guide/packages/lucide-react)
+- [NanoId](https://www.npmjs.com/package/nanoid)
+- [React Redux](https://react-redux.js.org)
+- [React Router Dom](https://reactrouter.com/en/main)
+- [Redux Persist](https://github.com/rt2zz/redux-persist)
+- HTML
+- SASS
+
+## Жива сторінка
+
+Жива сторінка доступна за посиланням [https://dtripled.github.io/agrotep_test/](https://dtripled.github.io/agrotep_test/)

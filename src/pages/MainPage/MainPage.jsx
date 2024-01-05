@@ -5,8 +5,10 @@ import CatList from "../../components/CatList/CatList";
 import { Plus, Trash } from "lucide-react";
 import { useDispatch, useSelector } from "react-redux";
 import { selectOffice } from "../../redux/cats/catsSelectors";
-import { day, month, year } from "../../helpers/date";
-import { addCat, addOffice, deleteOffice } from "../../redux/cats/catsSlice";
+
+import { addCat, deleteOffice } from "../../redux/cats/catsSlice";
+import { filter } from "../../helpers/filter";
+import HeaderSection from "../../components/HeaderSection/HeaderSection";
 
 const MainPage = () => {
   const [isHidden, setIsHidden] = useState(true);
@@ -18,87 +20,24 @@ const MainPage = () => {
   const offices = useSelector(selectOffice);
   const dispatch = useDispatch();
 
-  const filter = () => {
-    if (!today && !small) {
-      return offices;
-    }
-
-    if (today && small) {
-      return offices
-        .map((office) => ({
-          ...office,
-          data: office.data.filter((item) => item.years <= 2),
-        }))
-        .map((office) => ({
-          ...office,
-          data: office.data.filter(
-            (item) => item.receiving === `${year}-${month}-${day}`
-          ),
-        }));
-    }
-
-    if (small && !today) {
-      return offices.map((office) => ({
-        ...office,
-        data: office.data.filter((item) => item.years <= 2),
-      }));
-    }
-
-    if (today && !small) {
-      return offices.map((office) => ({
-        ...office,
-        data: office.data.filter(
-          (item) => item.receiving === `${year}-${month}-${day}`
-        ),
-      }));
-    }
-  };
-
-  const newOffice = () => {
-    dispatch(
-      addOffice({
-        officeName: "Кабінет",
-        data: [
-          {
-            catName: "Мурзик",
-            breed: "Мейкун",
-            years: 1,
-            receiving: "03.01.2024",
-            fact: "Fdfdsfdfggdggd",
-            id: "dsfsdfsdfsdf",
-          },
-        ],
-        id: offices.length,
-      })
-    );
-  };
-
   const addCatFunc = async (props) => {
     await dispatch(addCat({ data: props, selectedItem }));
   };
 
   return (
-    <main className={css.main_wrapper}>
-      <div className={css.filter_wrapper}>
-        <button onClick={newOffice} className={css.new_office__button}>
-          Новий кабінет
-        </button>
-        <label className={css.filter_label}>
-          <input type="checkbox" onClick={(e) => setToday(e.target.checked)} />
-          сьогодні
-        </label>
-        <label className={css.filter_label}>
-          <input type="checkbox" onClick={(e) => setSmall(e.target.checked)} />
-          Котенята
-        </label>
-      </div>
+    <>
+      <HeaderSection
+        setToday={setToday}
+        setSmall={setSmall}
+        offices={offices}
+      />
 
       <div className={css.table_wrapper}>
-        {filter().map((office, index) => (
-          <table key={office.id}>
+        {filter(today, small, offices).map((office, index) => (
+          <table key={office.id} className={css.table}>
             <thead>
               <tr>
-                <th colSpan="6">
+                <th colSpan="6" className={css.th}>
                   <div className={css.table_head}>
                     <div>
                       {office.officeName}
@@ -140,7 +79,7 @@ const MainPage = () => {
         setIsHidden={setIsHidden}
         addCatFunc={addCatFunc}
       />
-    </main>
+    </>
   );
 };
 

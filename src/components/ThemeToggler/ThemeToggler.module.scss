@@ -31,7 +31,7 @@
   width: 70%;
   height: 70%;
   background: #ffac33;
-  border: 1px solid white;
+  border: 1px solid var(--white);
   transition: all ease 0.15s;
 }
 
@@ -63,7 +63,7 @@
 }
 
 .switch div:nth-child(1)::after {
-  transform: var(--c) rotate(45deg); /*45deg increment each time*/
+  transform: var(--c) rotate(45deg);
 }
 
 .switch div:nth-child(2)::before {
@@ -82,7 +82,7 @@
   top: 50%;
   transform: var(--c);
   border-radius: 50%;
-  background: white;
+  background: var(--white);
   transition: all ease 0.15s;
 }
 
@@ -98,19 +98,17 @@
 }
 
 input:checked ~ .switch span {
-  width: 100%; /*width change*/
-  height: 100%; /*height change*/
-  background: #66757f; /*color change*/
-  /*we get a full moon*/
+  width: 100%;
+  height: 100%;
+  background: #66757f;
 }
 
 input:checked ~ .switch div::before,
 input:checked ~ .switch div::after {
-  height: 50%; /*we hide the sun-rays*/
+  height: 50%;
 }
 
 input:checked ~ .switch::before {
-  /*we draw a white circle a left-top corner to show a half moon*/
   left: 30%;
   top: 30%;
   width: 90%;
@@ -118,7 +116,6 @@ input:checked ~ .switch::before {
 }
 
 input:checked ~ .switch::after {
-  /*we hide the sun outline*/
   width: 0%;
   height: 0%;
 }

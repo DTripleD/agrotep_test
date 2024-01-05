@@ -26,14 +26,12 @@
   color: inherit;
 }
 
-.filter_wrapper {
-  display: flex;
-  gap: 60px;
-  align-items: center;
-  margin-bottom: 20px;
+.table {
+  border-collapse: collapse;
+  width: 100%;
 }
 
-.filter_label {
-  display: flex;
-  gap: 10px;
+.th {
+  padding: 10px;
+  border: 1px solid #2a2a2a;
 }

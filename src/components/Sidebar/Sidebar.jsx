@@ -8,7 +8,7 @@ const Sidebar = () => {
   const [isShown, setIsShown] = useState(false);
 
   return (
-    <div className={css.sidebar}>
+    <div className={`${css.sidebar} ${!isShown && css.sidebar_big}`}>
       <button
         onClick={() => setIsShown((prev) => !prev)}
         className={css.sidebar_button}

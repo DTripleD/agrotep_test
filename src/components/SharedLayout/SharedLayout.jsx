@@ -14,7 +14,13 @@ const SharedLayout = () => {
     <div className={`${css.container} ${isChecked && css.dark_theme}`}>
       <Sidebar />
       <Suspense fallback={<div>Loading...</div>}>
-        <Outlet />
+        <main>
+          <section className={css.section}>
+            <div className={css.page_container}>
+              <Outlet />
+            </div>
+          </section>
+        </main>
       </Suspense>
     </div>
   );

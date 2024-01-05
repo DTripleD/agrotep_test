@@ -7,8 +7,13 @@
   border-right: solid 1px black;
   padding: 50px 20px;
   transition: opacity 0.3s ease, width 0.3s ease;
-
+  width: 91px;
+  transition: width 0.3s ease;
   justify-content: space-between;
+}
+
+.sidebar_big {
+  width: 146px;
 }
 
 .nav_text {
@@ -18,12 +23,10 @@
   align-items: center;
   gap: 10px;
 
-  &:hover {
-    color: black;
+  &:hover,
+  &:focus {
+    color: var(--brand-color);
   }
-}
-.dark_theme .nav_text {
-  color: white;
 }
 
 .icon_arrow {
@@ -53,7 +56,7 @@
   position: absolute;
   right: 0;
   top: 20px;
-  background-color: white;
+  background-color: var(--white);
 
   transform: translate(50%);
   border-radius: 50%;
@@ -64,7 +67,6 @@
   align-items: center;
   justify-content: center;
   border: 1px black solid;
-  cursor: pointer;
 }
 
 .nav_wrapper {

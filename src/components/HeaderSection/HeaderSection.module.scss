@@ -1,0 +1,13 @@
+@import "../../index.scss";
+
+.filter_wrapper {
+  display: flex;
+  gap: 60px;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.filter_label {
+  display: flex;
+  gap: 10px;
+}

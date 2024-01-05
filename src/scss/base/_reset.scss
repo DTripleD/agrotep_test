@@ -8,8 +8,9 @@ p {
   margin: 0;
 }
 
-.link {
+a {
   text-decoration: none;
+  color: inherit;
 }
 
 li {
@@ -22,4 +23,8 @@ img {
   display: block;
   max-width: 100%;
   height: auto;
+}
+
+button {
+  cursor: pointer;
 }

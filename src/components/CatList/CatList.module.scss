@@ -8,3 +8,12 @@
   height: 40px;
   color: inherit;
 }
+
+td {
+  max-width: 50px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  cursor: pointer;
+  padding: 0 20px;
+}
