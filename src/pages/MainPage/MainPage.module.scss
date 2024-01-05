@@ -1,4 +1,4 @@
-@import "../../index.css";
+@import "../../index.scss";
 
 .main_wrapper {
   width: 100%;
@@ -11,9 +11,6 @@
   justify-content: space-between;
 }
 
-.new_office {
-}
-
 .table_wrapper {
   display: flex;
   flex-direction: column;
@@ -21,10 +18,22 @@
 }
 
 .plus_button {
-  cursor: pointer;
   background-color: transparent;
   border: none;
   border-radius: 50%;
   width: 40px;
   height: 40px;
+  color: inherit;
+}
+
+.filter_wrapper {
+  display: flex;
+  gap: 60px;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.filter_label {
+  display: flex;
+  gap: 10px;
 }

@@ -132,7 +132,7 @@ const Modal = ({ isHidden, setIsHidden, addCatFunc }) => {
             ></textarea>
           </label>
 
-          <button type="submit" className={css.modal__btn}>
+          <button type="submit" className={css.modal_button}>
             Відправити
           </button>
         </form>

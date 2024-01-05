@@ -1,11 +1,4 @@
-@import "../node_modules/modern-normalize/modern-normalize.css";
-
-body {
-  margin: 0;
-  font-family: "Manrope", sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-}
+@import "./scss";
 
 table {
   border-collapse: collapse;
@@ -33,6 +26,14 @@ td {
 }
 
 .dark_theme {
-  background-color: #4f4f4f;
+  background-color: #1d1d1d;
   color: #f5f5f5;
+}
+
+a {
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
 }

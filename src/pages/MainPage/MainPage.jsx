@@ -79,17 +79,19 @@ const MainPage = () => {
 
   return (
     <main className={css.main_wrapper}>
-      <button onClick={newOffice} className={css.new_office}>
-        Новий кабінет
-      </button>
-      <label>
-        <input type="checkbox" onClick={(e) => setToday(e.target.checked)} />
-        сьогодні
-      </label>
-      <label>
-        <input type="checkbox" onClick={(e) => setSmall(e.target.checked)} />
-        Котенята
-      </label>
+      <div className={css.filter_wrapper}>
+        <button onClick={newOffice} className={css.new_office__button}>
+          Новий кабінет
+        </button>
+        <label className={css.filter_label}>
+          <input type="checkbox" onClick={(e) => setToday(e.target.checked)} />
+          сьогодні
+        </label>
+        <label className={css.filter_label}>
+          <input type="checkbox" onClick={(e) => setSmall(e.target.checked)} />
+          Котенята
+        </label>
+      </div>
 
       <div className={css.table_wrapper}>
         {filter().map((office, index) => (

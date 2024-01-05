@@ -1,0 +1,54 @@
+@import "../../index.scss";
+
+.contacts {
+  display: flex;
+  flex-direction: column;
+  min-height: 50vh;
+}
+
+.contacts__item {
+  display: flex;
+}
+
+.contacts_title {
+  color: var(--brand-black);
+  font-size: 44px;
+  line-height: 1.36;
+  margin-bottom: 50px;
+}
+
+.contacts_about {
+  color: var(--brand-black);
+  font-size: 16px;
+  line-height: 1.19;
+  margin-bottom: 20px;
+}
+
+.contacts__list_text {
+  font-style: normal;
+  font-size: 16px;
+  line-height: 1.19;
+
+  color: var(--brand-black);
+}
+
+.contacts_link {
+  font-style: normal;
+  font-size: 16px;
+  line-height: 1.19;
+
+  color: var(--title-gray);
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover,
+  &:focus {
+    color: var(--brand-color);
+  }
+}
+
+.contacts_list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}

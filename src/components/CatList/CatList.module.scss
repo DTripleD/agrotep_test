@@ -1,10 +1,10 @@
-@import "../../index.css";
+@import "../../index.scss";
 
 .delete_button {
-  cursor: pointer;
   background-color: transparent;
   border: none;
   border-radius: 50%;
   width: 40px;
   height: 40px;
+  color: inherit;
 }
