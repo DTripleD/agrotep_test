@@ -8,6 +8,15 @@ const HeaderSection = ({ setToday, setSmall, offices }) => {
   const dispatch = useDispatch();
 
   const newOffice = () => {
+   let fact = ''; 
+    
+    fetch("https://catfact.ninja/fact")
+        .then((res) => res.json())
+        .then((data) => {
+          fact = data.fact
+        })
+        .catch((error) => console.log(error));
+    
     dispatch(
       addOffice({
         officeName: "Кабінет",
@@ -17,7 +26,7 @@ const HeaderSection = ({ setToday, setSmall, offices }) => {
             breed: "Мейкун",
             years: 1,
             receiving: "03.01.2024",
-            fact: "Fdfdsfdfggdggd",
+            fact,
             id: nanoid(),
           },
         ],
