@@ -3,21 +3,15 @@ import { addOffice } from "../../redux/cats/catsSlice";
 import css from "./HeaderSection.module.scss";
 import PropTypes from "prop-types";
 import { nanoid } from "nanoid";
+import {getCatFact} from "../../helpers/getCatFact.js";
 
 const HeaderSection = ({ setToday, setSmall, offices }) => {
   const dispatch = useDispatch();
 
-  const newOffice = () => {
-   let fact = ''; 
-    
-    fetch("https://catfact.ninja/fact")
-        .then((res) => res.json())
-        .then((data) => {
-          fact = data.fact
-        })
-        .catch((error) => console.log(error));
-    
-    dispatch(
+  const newOffice = async () => {
+      const fact = await getCatFact();
+
+   await dispatch(
       addOffice({
         officeName: "Кабінет",
         data: [
